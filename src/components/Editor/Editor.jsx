@@ -7,13 +7,30 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 
 const Editor = (props) => {
+  const { displayName, language, value, onChange } = props;
+
+  const handleChange = (editor, data, value) => {
+    onChange(value);
+  };
+
   return (
     <div className="editor-container">
       <div className="editor-title">
-        displayName
+        {displayName}
         <button>O/C</button>
       </div>
-      <ControlledEditor />
+      <ControlledEditor
+        onBeforeChange={handleChange}
+        value={value}
+        className="code0mirror-wrapper"
+        options={{
+          lineWrapping: true,
+          lineNumbers: true,
+          lint: true,
+          theme: "material",
+          mode: language,
+        }}
+      />
     </div>
   );
 };
