@@ -22,7 +22,7 @@ const Editor = (props) => {
       <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
-        className="code0mirror-wrapper"
+        className="code-mirror-wrapper"
         options={{
           lineWrapping: true,
           lineNumbers: true,
